@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <!--    Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--    Font Awesome-->
+    <script src="https://kit.fontawesome.com/324afbc193.js" crossorigin="anonymous"></script>
+    <!--    Medium Style Editor-->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+          type="text/css" media="screen" charset="utf-8">
+    <!--    Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <!--    Google FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Indie+Flower&display=swap"
+          rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top navbarfont">
+    <div class="navbar-header">
+        <a class="navbar-brand bigbrand colorchanger" href="{% url 'blog:post_list' %}">MY BLOGGO</a>
+    </div>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'blog:about' %}">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com">Github</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://linkedin.com">LinkedIn</a></li>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link">Welcome: {{ user.username }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'blog:post_new' %}">New Post</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'blog:post_draft_list' %}">Drafts</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-user-slash"></i></a>
+        </li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-user-injured"></i></a></li>
+        {% endif %}
+    </ul>
+</nav>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="blog_posts">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

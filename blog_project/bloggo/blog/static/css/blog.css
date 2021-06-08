@@ -1,0 +1,47 @@
+.navbarfont{
+font-family: 'Alfa Slab One', cursive;
+font-size: 1.5em;
+margin-bottom 15px;
+}
+
+.centerstage{
+margin-left: auto;
+margin-right: auto;
+}
+
+.bigbrand{
+font-size: 1.5em;
+}
+
+.postdate{
+text-align: center;
+}
+
+.posttitle{
+font-family: 'Alfa Slab One', cursive;
+font-size: 3em;
+text-align: center;
+}
+
+.postcontent{
+font-family: 'Indie Flower', cursive;
+font-size: 1.5em;
+}
+.btn-comment{
+position: absolute;
+right: 0px;
+}
+
+
+/* Color changer */
+.colorchanger {
+  animation: myanimation 10s infinite;
+}
+/*Color pallete generated from coolors.co*/
+@keyframes myanimation {
+  0% {color: #00BFB2;}
+  25%{color: #1a5e63;}
+  50%{color: #028090;}
+  75%{color: #f0f3bd;}
+  100% {color: #c64191;}
+}
